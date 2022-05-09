@@ -28,6 +28,7 @@ export default function PeoplePage({
 
 export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
   const data = await rivetQuery({ query })
+  console.log(data)
   return { props: data }
 }
 

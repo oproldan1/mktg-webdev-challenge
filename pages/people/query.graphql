@@ -11,15 +11,21 @@ query {
     parent {
       id
     }
+    id
   }
 
   allPeople(first: 100) {
     name
-    avatar {
-      url
-    }
+    title
     department {
       name
+      id
+      parent {
+        id
+      }
+    }
+    avatar {
+      url
     }
   }
 }
