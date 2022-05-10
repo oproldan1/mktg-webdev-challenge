@@ -6,12 +6,14 @@
 # You may want / need to edit this query!
 
 query {
-  allDepartments(first: 100) {
+  allDepartments(filter: { parent: { exists: "" } }) {
     name
-    parent {
-      id
+    children {
+      name
+      children {
+        name
+      }
     }
-    id
   }
 
   allPeople(first: 100) {
@@ -19,10 +21,6 @@ query {
     title
     department {
       name
-      id
-      parent {
-        id
-      }
     }
     avatar {
       url
