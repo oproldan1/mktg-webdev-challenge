@@ -9,14 +9,18 @@ import PeopleDirectory from '../../layouts/base/components/directory/PeopleDirec
 import SearchBar from '../../layouts/base/components/directory/SearchBar'
 import SideNav from '../../layouts/base/components/directory/SideNav'
 
+/*
+TODO:
+Create search with placeholder
+Create checkbox with hide people missing a profile image
+create logic for cards 
+*/
+
 interface Props {
   allPeople: PersonRecord[]
   allDepartments: DepartmentRecord[]
 }
 
-/*
-pass down props from index.tsx to SideNav.jsx
-*/
 export default function PeoplePage({
   allPeople,
   allDepartments,
@@ -25,21 +29,20 @@ export default function PeoplePage({
   const allDepts = JSON.stringify(allDepartments, null, 2)
   return (
     <main>
-      <SearchBar />
-      <HideFeature />
-      <div style={{ display: 'flex' }}>
-        <SideNav allDepts={allDepts} />
+      <header className={style.pageHeader}>
+        <h2 className={style.title}>HashiCorp Humans</h2>
+        <p className={style.tagline}>Find a HashiCorp human</p>
+        <SearchBar />
+        <HideFeature />
+      </header>
+      <div className={style.pageContent}>
+        <div className={style.navArea}>
+          <div className={style.navTitle}>Filter By Department</div>
+          <SideNav allDepts={allDepts} />
+        </div>
         <PeopleDirectory people={people} />
       </div>
     </main>
-    // <main className="g-grid-container">
-    //   <h2>People Data</h2>
-    //   <pre className={style.myData}>{JSON.stringify(allPeople, null, 2)}</pre>
-    //   <h2>Departments Data</h2>
-    //   <pre className={style.myData}>
-    //     {JSON.stringify(allDepartments, null, 2)}
-    //   </pre>
-    // </main>
   )
 }
 

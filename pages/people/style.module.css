@@ -4,8 +4,197 @@
 
 /* ref: https://preset-env.cssdb.org/ */
 
-.myData {
-  color: yellow;
-  background-color: var(--black);
-  padding: 16px;
+/*
+*** styling values are calculated to be 81% of the size of the Figma. Figma is slightly bigger, cannot hardcode exact px measurements ***
+Using em for padding/margin for relative measurement vs static px measurement
+Use media queries, setting min/max height/width for different viewports
+*/
+
+.expandableFolder, .navItem {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: .81em;
+  line-height: 1.42em;
+  color: #484848;
+}
+
+.expandableFolder {
+  cursor: pointer;
+}
+
+.hideFeature {
+  display: flex;
+  align-items: center;
+  margin-top: 1.12em;
+  color: #4E515D;
+}
+
+.hideFeatureCheckbox {
+  width: 1em;
+  height: 1em;
+  background: #FFFFFF;
+  border: 1px solid #1563FF;
+  border-radius: 2px;
+}
+
+/*
+custom styling needed for checkbox
+*/
+/* input[type='checkbox'].hideFeatureCheckbox {
+  appearance: none;
+  -webkit-appearance: none;
+  content: '';
+  width: 1em;
+  height: 1em;
+  display: block;
+  border: solid #1563FF !important;
+  border-width: 0 2px 2px 0;
+  margin-left: 4px;
+  margin-top: 1px;
+}
+
+input[type='checkbox']:after.hideFeatureCheckbox {
+  font-weight: 700;
+  background: #1563FF;
+  border: 1px solid #1563FF;
+  border-radius: 2px;
+
+} */
+
+.hideFeatureText {
+font-family: 'Open Sans';
+font-style: normal;
+font-weight: 400;
+font-size: .71em;
+line-height: 1.22em;
+margin-left: .61em;
+color: #4E515D;
+}
+
+.navArea {
+  margin-left: 7.06em;
+  margin-right: 5.4em;
+  width: 161.9px;
+}
+
+.navTitle {
+  font-weight: 600;
+  font-size: .81em;
+  line-height: 1.42em;
+  color: #394237;
+  margin-bottom: .71em;
+  text-align: start !important;
+}
+
+.pageHeader {
+  padding-top: 7.64em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  margin-bottom: 4.45em;
+}
+
+.pageContent {
+  display: flex;
+  width: 100%;
+  justify-content: space-around; 
+}
+
+.peopleCards {
+  width: 14.175em;
+  height: 10.85em;
+  left: 25.56em;
+  top: 51.69em;
+  background: #FFFFFF;
+  border: 1px solid #C0C0C0;
+}
+
+.peopleWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  list-style: none;
+  grid-gap: 1.625em;
+  margin-right: 9.71em;
+  margin-bottom: 18.32em;
+}
+
+.personImage {
+  width: 5.36em;
+  height: 5.5em;   
+  border-radius: 12.66em;
+}
+
+.navTitle, .title, .tagline, .teamHeading, .teamDesignation, .teamDepartment {
+  font-family: 'Open Sans';
+  font-style: normal;
+  text-align: center;
+}
+
+.searchBar {
+  box-sizing: border-box;
+  width: 582px;
+  height: 48px;
+  left: 509px;
+  top: 356px;
+  background: #FFFFFF;
+  border: 1px solid #CFD1D9;
+  border-radius: 100px;
+}
+
+.subFolder {
+  padding-left: .45em;
+  border-left: 1px solid #CBCBCB
+}
+
+.tagline {
+  font-weight: 400;
+  font-size: .81em;
+  line-height: 1.42em;
+  margin-top: 1.21em;
+  color: #4E515D;
+}
+
+.teamDesignation, .teamDepartment {
+  font-weight: 400;
+  font-size: .71em;
+  margin: 0px;
+  padding: 0px;
+  color: #4E515D;
+}
+
+.teamHeading {
+  font-weight: 600;
+  font-size: .813em;
+  margin: 0px;
+  padding: 0px;
+  color: #373942;
+}
+
+.teamInnerContent {
+  margin: 0px;
+  padding: 0px;
+}
+
+.teamMember {
+  text-align: center;
+}
+
+.teamMember, .teamMemberImage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: .35em;
+}
+
+.title {
+  font-weight: 300;
+  font-size: 2.84em;
+  line-height: 3.24em;
+  margin: 0px;
+  letter-spacing: -.06em;
+  color: #000000;
 }
