@@ -5,15 +5,19 @@ import BaseLayout from '../../layouts/base'
 import style from './style.module.css'
 import query from './query.graphql'
 import HideFeature from '../../layouts/base/components/directory/HideFeature'
-import PeopleDirectory from '../../layouts/base/components/directory/PeopleDirectory'
 import SearchBar from '../../layouts/base/components/directory/SearchBar'
-import SideNav from '../../layouts/base/components/directory/SideNav'
 
 /*
-TODO:
-Create search with placeholder
-Create checkbox with hide people missing a profile image
-create logic for cards 
+Smart, Functional components should live at the highest level components
+Dumb, presentation components should live on bottom so we can recycle as we scale
+Could have also used Context API to avoid prop-drilling (esp w/ SearchBar feature)
+Then use the useReducer hook so that all components within the provider don't re-render, just the targeted component 
+
+Accessibility:
+Semantic HTML: Thoughtful HTML that describes elements on page to inform users where they are currently located. Avoid use of semantic tags for styling because people depend on semantic HTML to gather important info about site 
+Tab Trapping: For keyboard users we can keep them within a specific field
+Skip links: Skip to the content for a keyboard only user
+Alt tags/Alt Attributes/Aria roles: Provide semantic meaning to content
 */
 
 interface Props {
@@ -30,18 +34,11 @@ export default function PeoplePage({
   return (
     <main>
       <header className={style.pageHeader}>
-        <h2 className={style.title}>HashiCorp Humans</h2>
+        <h1 className={style.title}>HashiCorp Humans</h1>
         <p className={style.tagline}>Find a HashiCorp human</p>
-        <SearchBar />
-        <HideFeature />
+        <SearchBar people={people} />
       </header>
-      <div className={style.pageContent}>
-        <div className={style.navArea}>
-          <div className={style.navTitle}>Filter By Department</div>
-          <SideNav allDepts={allDepts} />
-        </div>
-        <PeopleDirectory people={people} />
-      </div>
+      <HideFeature people={people} allDepts={allDepts} />
     </main>
   )
 }

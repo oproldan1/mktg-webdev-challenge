@@ -6,8 +6,9 @@
 
 /*
 *** styling values are calculated to be 81% of the size of the Figma. Figma is slightly bigger, cannot hardcode exact px measurements ***
-Using em for padding/margin for relative measurement vs static px measurement
-Use media queries, setting min/max height/width for different viewports
+Using em for padding/margin for relative measurement vs static px measurement. Helps with responsiveness
+TODO:
+Use media queries setting min/max height/width, accounting for responsiveness for different viewports
 */
 
 .expandableFolder, .navItem {
@@ -38,6 +39,12 @@ Use media queries, setting min/max height/width for different viewports
   border-radius: 2px;
 }
 
+.hideFeatureGroup {
+  display: flex;
+  justify-content: center;
+  margin-top: .94em;
+  margin-bottom: 4.45em;
+}
 /*
 custom styling needed for checkbox
 */
@@ -63,13 +70,13 @@ input[type='checkbox']:after.hideFeatureCheckbox {
 } */
 
 .hideFeatureText {
-font-family: 'Open Sans';
-font-style: normal;
-font-weight: 400;
-font-size: .71em;
-line-height: 1.22em;
-margin-left: .61em;
-color: #4E515D;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: .71em;
+  line-height: 1.22em;
+  margin-left: .61em;
+  color: #4E515D;
 }
 
 .navArea {
@@ -94,7 +101,7 @@ color: #4E515D;
   align-items: center;
   text-align: center;
   overflow: hidden;
-  margin-bottom: 4.45em;
+  margin-bottom: 0em;
 }
 
 .pageContent {
@@ -134,17 +141,30 @@ color: #4E515D;
 }
 
 .searchBar {
+  text-indent: 44px; 
   box-sizing: border-box;
-  width: 582px;
-  height: 48px;
-  left: 509px;
-  top: 356px;
+  width: 29.5em;
+  height: 2.4em;
+  left: 25.76em;
+  top: 18.02em;
   background: #FFFFFF;
   border: 1px solid #CFD1D9;
-  border-radius: 100px;
+  border-radius: 5.06em;
+}
+
+input[placeholder].searchBar {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  color: #989CAC;
+
 }
 
 .subFolder {
+  display: flex;
+  flex-direction: column;
   padding-left: .45em;
   border-left: 1px solid #CBCBCB
 }
@@ -152,8 +172,8 @@ color: #4E515D;
 .tagline {
   font-weight: 400;
   font-size: .81em;
-  line-height: 1.42em;
-  margin-top: 1.21em;
+  margin-top: 1em;
+  margin-bottom: 2.1em;
   color: #4E515D;
 }
 
@@ -173,18 +193,8 @@ color: #4E515D;
   color: #373942;
 }
 
-.teamInnerContent {
-  margin: 0px;
-  padding: 0px;
-}
-
-.teamMember {
-  text-align: center;
-}
-
 .teamMember, .teamMemberImage {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: .35em;
@@ -193,7 +203,6 @@ color: #4E515D;
 .title {
   font-weight: 300;
   font-size: 2.84em;
-  line-height: 3.24em;
   margin: 0px;
   letter-spacing: -.06em;
   color: #000000;

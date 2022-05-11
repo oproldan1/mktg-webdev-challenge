@@ -69,9 +69,7 @@ export default function SideNav({ allDepts }) {
     else newValue = !uiState[elemName]
     setUiState((prevState) => ({ ...prevState, [elemName]: newValue }))
   }
-
   console.log('uiState', uiState)
-
   return (
     <div>
       {JSON.parse(allDepts).map((elem) => {

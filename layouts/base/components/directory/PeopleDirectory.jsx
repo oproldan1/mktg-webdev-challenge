@@ -12,8 +12,6 @@ import React from 'react'
 import style from '../../../../pages/people/style.module.css'
 
 export default function PeopleDirectory({ people }) {
-  const allPersons = JSON.parse(people)
-  console.log(allPersons)
   const showPeople = (people) => {
     return people.map((person) => {
       //if avatar exists, it will return value of string (truthy)
@@ -35,7 +33,7 @@ export default function PeopleDirectory({ people }) {
               />
             </figure>
           </div>
-          <div className={style.teamInnerContent}>
+          <div>
             <p className={style.teamHeading}>{person.name}</p>
             <p className={style.teamDesignation}>{person.title}</p>
             <p className={style.teamDepartment}>{person.department.name}</p>
@@ -44,7 +42,7 @@ export default function PeopleDirectory({ people }) {
       )
     })
   }
-  return <div className={style.peopleWrapper}>{showPeople(allPersons)}</div>
+  return <div className={style.peopleWrapper}>{showPeople(people)}</div>
 }
 
 /*
